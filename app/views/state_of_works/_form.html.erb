@@ -1,0 +1,32 @@
+<%= form_with(model: state_of_work) do |form| %>
+  <% if state_of_work.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(state_of_work.errors.count, "error") %> prohibited this state_of_work from being saved:</h2>
+
+      <ul>
+        <% state_of_work.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :state_at, style: "display: block" %>
+    <%= form.datetime_field :state_at %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
