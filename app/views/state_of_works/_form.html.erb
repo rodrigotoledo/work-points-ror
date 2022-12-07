@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :email %>
   </div>
 
   <div>
     <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
+    <%= form.select :state, options_for_select(StateOfWork.states.map {|key, value| [key.titleize, StateOfWork.states.key(value)]}, state_of_work.state), include_blank: '-- Select --' %>
   </div>
 
   <div>
